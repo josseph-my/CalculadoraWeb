@@ -27,34 +27,26 @@ namespace WebApplication1
 
             string operacion = List1.SelectedValue;
 
-            switch (operacion)
+            if (operacion == "Potencia 2" || operacion == "Potencia 3" ||
+        operacion == "Raiz cuadrada" || operacion == "Factorial" || operacion == "Fibonacci")
             {
-                case "Sumar":
-                case "Restar":
-                case "Multiplicar":
-                case "Dividir":
-                    if (!float.TryParse(Tnum1.Text, out n1) || !float.TryParse(Tnum2.Text, out n2))
-                    {
-                        result.Text = "Error: Debe ingresar dos números válidos.";
-                        return;
-                    }
-                    break;
-
-                case "Potencia 2":
-                case "Potencia 3":
-                case "Raiz cuadrada":
-                case "Factorial":
-                case "Fibonacci":
-
-                    if (!float.TryParse(Tnum1.Text, out n1))
-                    {
-                        result.Text = "Error: Debe ingresar al menos un número válido.";
-                        return;
-                    }
-                    break;
-
+                if (!float.TryParse(Tnum1.Text, out n1))
+                {
+                    result.Text = "Error: Ingrese un número válido en el primer campo.";
+                    return;
+                }
             }
 
+            if (operacion == "Sumar" || operacion == "Restar" ||
+                operacion == "Multiplicar" || operacion == "Dividir")
+            {
+                if (!float.TryParse(Tnum1.Text, out n1) || !float.TryParse(Tnum2.Text, out n2))
+                {
+                    result.Text = "Error: Ingrese dos números válidos.";
+                    return;
+                }
+            }
+            pp.Text = n1.ToString();
             switch (operacion)
             {
                 case "Sumar":
@@ -118,7 +110,7 @@ namespace WebApplication1
             }
 
             result.Text = "Resultado: " + total.ToString();
-            pp.Text = n1.ToString();
+            
 
         }
 
@@ -134,6 +126,7 @@ namespace WebApplication1
 
         private int Fibonacci(int n)
         {
+            
             if (n == 0) return 0;
             if (n == 1) return 1;
 
@@ -141,13 +134,13 @@ namespace WebApplication1
             int b = 1;
             int resultado = 0;
 
-            for (int i = 2; i >= n; i++)
+            for (int i = 2; i <= n; i++)
             {
                 resultado = a + b;
                 a = b;
                 b = resultado;
             }
-
+            pp.Text = n1.ToString();
             return resultado;
         }
 
