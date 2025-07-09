@@ -50,58 +50,36 @@ namespace WebApplication1
             switch (operacion)
             {
                 case "Sumar":
-                    total = n1 + n2;
+                    total = Operaciones.Sumar(n1, n2);
                     break;
 
                 case "Restar":
-                    total = n1 - n2;
+                    total = Operaciones.Restar(n1, n2);
                     break;
 
                 case "Multiplicar":
-                    total = n1 * n2;
+                    total = Operaciones.Multiplicar(n1, n2);
                     break;
 
                 case "Dividir":
-                    if (n2 != 0)
-                        total = n1 / n2;
-                    else
-                    {
-                        result.Text = "Error no se puede dividir por cero";
-                        return;
-                    }
+                    total = Operaciones.Dividir(n1, n2);
                     break;
 
                 case "Potencia 2":
-                    total = n1 * n1;
+                    total = Operaciones.Potencia2(n1);
                     break;
 
                 case "Raiz cuadrada":
-                    if (n1 >= 0)
-                        total = (float)Math.Sqrt(n1);
-                    else
-                    {
-                        result.Text = "Error no se puede raíz de negativo";
-                        return;
-                    }
+                    total = Operaciones.RaizCuadrada(n1);
                     break;
 
                 case "Factorial":
-                    if (n1 < 0 || n1 != (int)n1)
-                    {
-                        result.Text = "Error no ingresar negativos";
-                        return;
-                    }
-                    total = Factorial((int)n1);
+                    total = Operaciones.Factorial(n1);
                     break;
 
                 case "Fibonacci":
                     
-                    if (n1 < 0 )
-                    {
-                        result.Text = "Error no ingresar negativos";
-                        return;
-                    }
-                    total = Fibonacci((int)n1);
+                    total = Operaciones.Fibonacci((int)n1);
                     break;
 
                 case "Potencia 3":
